@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The BIGGEST Question! 💍</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #000000; 
+            color: #ffffff;
+            overflow: hidden; 
+        }
+        
+        /* Neon Ring and Balloon Icons (Placeholders, use real images for best result) */
+        .neon-icon {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.8;
+            z-index: 10;
+        }
+        #ring-icon {
+            top: 20%;
+            left: 10%;
+            border-radius: 50%;
+            border: 5px solid #ff00ff;
+            box-shadow: 0 0 10px #ff00ff, 0 0 30px #ff00ff;
+            animation: float-ring 15s infinite ease-in-out;
+            /* Placeholder for actual ring image */
+            display: flex; justify-content: center; align-items: center; font-size: 4em;
+        }
+        #balloon-icon {
+            bottom: 15%;
+            right: 15%;
+            border-radius: 50% 50% 50% 50%;
+            border: 5px solid #00ffff;
+            box-shadow: 0 0 10px #00ffff, 0 0 30px #00ffff;
+            animation: float-balloon 15s infinite ease-in-out reverse;
+            /* Placeholder for actual balloon image */
+        }
+        
+        /* Proposal Box Styling */
+        .proposal-box {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 60px 80px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px #ff00ff, 0 0 80px #00ffff;
+            animation: neon-pulse 3s infinite alternate;
+        }
+
+        h1 {
+            font-size: 5em;
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 30px #00ffff;
+            margin-bottom: 50px;
+            letter-spacing: 5px;
+        }
+
+        /* Buttons Container */
+        .buttons-container {
+            margin-top: 50px;
+            display: flex;
+            gap: 80px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* IRRESISTIBLE 'YES' Button - Making it dominant */
+        #yes-btn {
+            padding: 30px 80px;
+            font-size: 3em;
+            font-weight: 900;
+            border: 7px solid #00ff00;
+            border-radius: 20px;
+            background-color: transparent;
+            color: #00ff00;
+            cursor: pointer;
+            box-shadow: 0 0 20px #00ff00, 0 0 50px #00ff00;
+            transition: all 0.3s;
+            animation: pulse-yes 1.2s infinite alternate; 
+            text-transform: uppercase;
+        }
+        #yes-btn:hover {
+            background-color: #00ff0030;
+            transform: scale(1.08);
+        }
+
+        /* Dull 'NO' Button - Making it small and unappealing */
+        #no-btn {
+            padding: 8px 15px;
+            font-size: 0.9em;
+            font-weight: normal;
+            border: 1px solid #ff00ff;
+            border-radius: 3px;
+            background-color: transparent;
+            color: #ff00ff;
+            cursor: pointer;
+            transition: all 0.2s;
+            opacity: 0.4; /* Making it nearly invisible */
+            box-shadow: 0 0 5px #ff00ff;
+        }
+        #no-btn:hover {
+            opacity: 0.8;
+            transform: scale(1.2); /* Still not as tempting as YES */
+        }
+        
+        /* Keyframe Animations */
+        @keyframes neon-pulse {
+            0% { box-shadow: 0 0 30px #ff00ff, 0 0 80px #00ffff; }
+            100% { box-shadow: 0 0 30px #00ffff, 0 0 80px #ff00ff; }
+        }
+        @keyframes pulse-yes {
+            0% { transform: scale(1); box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00; }
+            100% { transform: scale(1.05); box-shadow: 0 0 30px #00ff00, 0 0 60px #00ff00; }
+        }
+        @keyframes float-ring {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+        @keyframes float-balloon {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(30px) rotate(-5deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ring-icon" class="neon-icon">💍</div>
+    <div id="balloon-icon" class="neon-icon"></div>
+
+    <div class="proposal-box">
+        <h1 style="color: #00ffff;">YOU ARE MY FOREVER GLOW.</h1>
+        <h1 style="color: #ff00ff; font-size: 6em;">Will You Marry Me?</h1>
+        
+        <div class="buttons-container">
+            <button id="yes-btn" onclick="window.location.href='accepted.html';">YES!</button>
+            <button id="no-btn" onclick="alert('No is not an option! Try again. 😉');">No</button>
+        </div>
+    </div>
+    
+</body>
+</html>
