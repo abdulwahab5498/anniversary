@@ -7,7 +7,7 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            height: 100vh;
+            min-height: 100vh; /* Changed to min-height for scrollability */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -15,10 +15,10 @@
             text-align: center;
             background-color: #000000; 
             color: #ffffff;
-            overflow: hidden; 
+            overflow-x: hidden; /* Only vertical scroll allowed */
         }
         
-        /* Neon Ring and Balloon Icons (Placeholders, use real images for best result) */
+        /* Neon Icons */
         .neon-icon {
             position: absolute;
             width: 150px;
@@ -35,7 +35,6 @@
             border: 5px solid #ff00ff;
             box-shadow: 0 0 10px #ff00ff, 0 0 30px #ff00ff;
             animation: float-ring 15s infinite ease-in-out;
-            /* Placeholder for actual ring image */
             display: flex; justify-content: center; align-items: center; font-size: 4em;
         }
         #balloon-icon {
@@ -45,18 +44,22 @@
             border: 5px solid #00ffff;
             box-shadow: 0 0 10px #00ffff, 0 0 30px #00ffff;
             animation: float-balloon 15s infinite ease-in-out reverse;
-            /* Placeholder for actual balloon image */
         }
         
-        /* Proposal Box Styling */
+        /* Proposal Box Styling - Entrance Animation Added */
         .proposal-box {
             position: relative;
-            z-index: 10;
+            z-index: 20;
             background: rgba(255, 255, 255, 0.05);
             padding: 60px 80px;
             border-radius: 20px;
             box-shadow: 0 0 30px #ff00ff, 0 0 80px #00ffff;
             animation: neon-pulse 3s infinite alternate;
+            
+            /* Entrance Animation */
+            opacity: 0;
+            transform: translateY(-200px);
+            animation: slide-down 1.5s forwards, neon-pulse 3s 1.5s infinite alternate; 
         }
 
         h1 {
@@ -67,7 +70,7 @@
             letter-spacing: 5px;
         }
 
-        /* Buttons Container */
+        /* Buttons Container (unchanged) */
         .buttons-container {
             margin-top: 50px;
             display: flex;
@@ -76,7 +79,7 @@
             align-items: center;
         }
 
-        /* IRRESISTIBLE 'YES' Button - Making it dominant */
+        /* Irresistible 'YES' Button (unchanged) */
         #yes-btn {
             padding: 30px 80px;
             font-size: 3em;
@@ -96,7 +99,7 @@
             transform: scale(1.08);
         }
 
-        /* Dull 'NO' Button - Making it small and unappealing */
+        /* Dull 'NO' Button (unchanged) */
         #no-btn {
             padding: 8px 15px;
             font-size: 0.9em;
@@ -107,15 +110,19 @@
             color: #ff00ff;
             cursor: pointer;
             transition: all 0.2s;
-            opacity: 0.4; /* Making it nearly invisible */
+            opacity: 0.4; 
             box-shadow: 0 0 5px #ff00ff;
         }
         #no-btn:hover {
             opacity: 0.8;
-            transform: scale(1.2); /* Still not as tempting as YES */
+            transform: scale(1.2); 
         }
         
         /* Keyframe Animations */
+        @keyframes slide-down {
+            0% { opacity: 0; transform: translateY(-200px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
         @keyframes neon-pulse {
             0% { box-shadow: 0 0 30px #ff00ff, 0 0 80px #00ffff; }
             100% { box-shadow: 0 0 30px #00ffff, 0 0 80px #ff00ff; }
