@@ -7,7 +7,7 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            min-height: 100vh; /* Changed to min-height for scrollability */
+            min-height: 100vh; /* Scrollable Fix */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -18,7 +18,7 @@
             overflow-x: hidden;
         }
 
-        /* Fireworks Container (unchanged) */
+        /* Fireworks Container */
         .fireworks-container {
             position: absolute;
             top: 0;
@@ -29,13 +29,13 @@
             pointer-events: none;
         }
 
-        /* Acceptance Box - Entrance Animation Added */
+        /* Acceptance Box - Animated Entrance */
         .acceptance-box {
             position: relative;
             z-index: 10;
             background-color: rgba(0, 0, 0, 0.9);
             padding: 60px 80px;
-            margin: 40px 0; /* Add margin for scroll view */
+            margin: 40px 0; /* Margin for scroll view */
             border-radius: 20px;
             box-shadow: 0 0 50px #ff00ff, 0 0 100px #00ffff;
             animation: final-glow 2s infinite alternate;
@@ -70,7 +70,28 @@
             text-shadow: 0 0 8px #00ffff;
         }
 
-        /* Firework Particle CSS (unchanged) */
+        /* NEXT STEP Button Styling */
+        #next-step-btn {
+            padding: 15px 30px; 
+            margin-top: 30px; 
+            font-size: 1.5em; 
+            background-color: transparent; 
+            border: 3px solid #00ffff; 
+            color: #00ffff; 
+            border-radius: 10px; 
+            cursor: pointer;
+            box-shadow: 0 0 10px #00ffff;
+            transition: all 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        #next-step-btn:hover {
+            background-color: #00ffff20;
+            box-shadow: 0 0 20px #00ffff;
+            transform: scale(1.05);
+        }
+
+        /* Firework Particle CSS */
         .particle {
             position: absolute;
             width: 4px;
@@ -120,15 +141,21 @@
         <div class="song-info">
             (Our Engagement Song: Tera Mera Safar)
         </div>
+
+        <button id="next-step-btn" 
+                onclick="window.location.href='final_request.html';">
+            ONE LAST THING... (A Heartfelt Request)
+        </button>
     </div>
     
     <script>
-        // --- Audio Auto-Play Fix (Optional) ---
+        // --- Audio Auto-Play Fix ---
+        // This attempts to play the audio after any user interaction (like clicking the button).
         document.addEventListener('click', function() {
             document.getElementById('safar-audio').play().catch(e => console.log("Autoplay blocked:", e));
         });
 
-        // --- Realistic Firework Particle System (unchanged) ---
+        // --- Realistic Firework Particle System ---
         const colors = ['#ff00ff', '#00ffff', '#00ff00', '#ffff00', '#ff8000', '#ffffff'];
         const container = document.getElementById('fireworks-container');
 
@@ -144,20 +171,24 @@
                 const angle = Math.random() * 2 * Math.PI;
                 const radius = Math.random() * 50; 
                 
+                // Starting position
                 particle.style.left = `calc(${x}vw + ${Math.cos(angle) * radius}px)`;
                 particle.style.top = `calc(${y}vh + ${Math.sin(angle) * radius}px)`;
                 
+                // Particle styling
                 particle.style.backgroundColor = randomColor;
                 particle.style.boxShadow = `0 0 8px ${randomColor}`;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
 
+                // Animation duration and delay
                 const duration = Math.random() * 1 + 1.5;
                 particle.style.animationDuration = `${duration}s`;
                 particle.style.animationDelay = `${Math.random() * 0.2}s`;
                 
                 container.appendChild(particle);
 
+                // End position (spreading out)
                 particle.style.transform = `translate(${(Math.random() - 0.5) * 400}px, ${(Math.random() - 0.5) * 400}px) scale(0)`;
                 
                 setTimeout(() => { particle.remove(); }, duration * 1000 + 500); 
@@ -166,6 +197,7 @@
 
         // Spawn fireworks randomly
         function startFireworks() {
+            // Spawn fireworks in the upper half of the screen
             const randomX = Math.random() * 80 + 10; 
             const randomY = Math.random() * 40 + 10; 
             createParticles(randomX, randomY);
