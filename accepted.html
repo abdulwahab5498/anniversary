@@ -7,7 +7,7 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            height: 100vh;
+            min-height: 100vh; /* Changed to min-height for scrollability */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -15,10 +15,10 @@
             text-align: center;
             background-color: #000000;
             color: #ffffff;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        /* Fireworks Container */
+        /* Fireworks Container (unchanged) */
         .fireworks-container {
             position: absolute;
             top: 0;
@@ -29,14 +29,21 @@
             pointer-events: none;
         }
 
+        /* Acceptance Box - Entrance Animation Added */
         .acceptance-box {
             position: relative;
             z-index: 10;
             background-color: rgba(0, 0, 0, 0.9);
             padding: 60px 80px;
+            margin: 40px 0; /* Add margin for scroll view */
             border-radius: 20px;
             box-shadow: 0 0 50px #ff00ff, 0 0 100px #00ffff;
             animation: final-glow 2s infinite alternate;
+
+            /* Entrance Animation */
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fade-zoom-in 2s forwards, final-glow 2s 2s infinite alternate;
             max-width: 900px;
         }
 
@@ -46,6 +53,7 @@
             text-shadow: 0 0 10px #ff00ff, 0 0 30px #00ffff;
             margin-bottom: 30px;
             letter-spacing: 5px;
+            animation: pulse-large 3s 3s infinite; /* Delayed pulse */
         }
 
         p {
@@ -62,7 +70,7 @@
             text-shadow: 0 0 8px #00ffff;
         }
 
-        /* Firework Particle CSS */
+        /* Firework Particle CSS (unchanged) */
         .particle {
             position: absolute;
             width: 4px;
@@ -73,9 +81,19 @@
             animation: firework-trail 1.5s ease-out forwards;
         }
 
+        /* Keyframes */
+        @keyframes fade-zoom-in {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
         @keyframes final-glow {
             0% { box-shadow: 0 0 50px #ff00ff, 0 0 100px #00ffff; }
             100% { box-shadow: 0 0 50px #00ffff, 0 0 100px #ff00ff; }
+        }
+        @keyframes pulse-large {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
         }
         @keyframes firework-trail {
             0% { transform: scale(1); opacity: 1; }
@@ -110,7 +128,7 @@
             document.getElementById('safar-audio').play().catch(e => console.log("Autoplay blocked:", e));
         });
 
-        // --- Realistic Firework Particle System ---
+        // --- Realistic Firework Particle System (unchanged) ---
         const colors = ['#ff00ff', '#00ffff', '#00ff00', '#ffff00', '#ff8000', '#ffffff'];
         const container = document.getElementById('fireworks-container');
 
@@ -126,24 +144,20 @@
                 const angle = Math.random() * 2 * Math.PI;
                 const radius = Math.random() * 50; 
                 
-                // Starting position
                 particle.style.left = `calc(${x}vw + ${Math.cos(angle) * radius}px)`;
                 particle.style.top = `calc(${y}vh + ${Math.sin(angle) * radius}px)`;
                 
-                // Particle styling
                 particle.style.backgroundColor = randomColor;
                 particle.style.boxShadow = `0 0 8px ${randomColor}`;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
 
-                // Animation delay and duration
                 const duration = Math.random() * 1 + 1.5;
                 particle.style.animationDuration = `${duration}s`;
                 particle.style.animationDelay = `${Math.random() * 0.2}s`;
                 
                 container.appendChild(particle);
 
-                // End position (spreading out)
                 particle.style.transform = `translate(${(Math.random() - 0.5) * 400}px, ${(Math.random() - 0.5) * 400}px) scale(0)`;
                 
                 setTimeout(() => { particle.remove(); }, duration * 1000 + 500); 
@@ -152,7 +166,6 @@
 
         // Spawn fireworks randomly
         function startFireworks() {
-            // Spawn fireworks in the upper half of the screen
             const randomX = Math.random() * 80 + 10; 
             const randomY = Math.random() * 40 + 10; 
             createParticles(randomX, randomY);
