@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Incredible 1st Year - Happy Anniversary, Aliza! 💖</title>
+    <style>
+        /* Base Setup */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #ffffff;
+            scroll-behavior: smooth; 
+            overflow-x: hidden;
+        }
+
+        /* Full Page Sections */
+        .section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            background-color: #000000;
+            z-index: 1;
+        }
+        
+        /* Parallax Background Container */
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Key for Parallax */
+            transition: opacity 1s;
+        }
+
+        /* Specific Backgrounds */
+        #intro .parallax-bg { background: linear-gradient(135deg, #1f0036 0%, #000000 100%); }
+        #memories .parallax-bg { 
+            background-image: url('https://i.postimg.cc/brfvXrPZ/li.jpg'); /* YOUR FIRST IMAGE */
+            filter: brightness(0.6);
+        }
+        #funny-corner { background-color: #080808; }
+        #journey { background-color: #121212; }
+        #finale .parallax-bg { 
+            background-image: url('https://i.postimg.cc/CKvDVjrd/wa.jpg'); /* YOUR FINAL IMAGE */
+            filter: brightness(0.7);
+        }
+
+        /* Content Box - Advanced Neon Glow */
+        .content-box {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 40px 60px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 0, 255, 0.5);
+            box-shadow: 0 0 15px #ff00ff, 0 0 30px #00ffff; /* Dual Neon Glow */
+            max-width: 800px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            z-index: 2;
+        }
+        .content-box.visible { opacity: 1; transform: translateY(0); }
+
+        /* Headings & Text */
+        h1 { font-size: 4.5em; color: #ff00ff; text-shadow: 0 0 5px #ff00ff, 0 0 15px #ff00ff; letter-spacing: 5px; margin-bottom: 20px; }
+        h2 { font-size: 3.2em; color: #00ffff; text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff; letter-spacing: 3px; }
+        p { font-size: 1.4em; line-height: 1.7; color: #ccc; }
+
+        /* Countdown Button Styling */
+        #surprise-button {
+            padding: 18px 40px;
+            font-size: 1.6em;
+            margin-top: 40px;
+            cursor: pointer;
+            border: 3px solid #00ffff;
+            border-radius: 50px; /* Pill Shape */
+            background-color: transparent;
+            color: #00ffff;
+            box-shadow: 0 0 15px #00ffff;
+            transition: all 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        #surprise-button:hover:not(:disabled) {
+            background-color: #00ffff20;
+            box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff;
+            transform: scale(1.05);
+        }
+        #countdown-timer {
+            margin-top: 20px;
+            font-size: 3em;
+            color: #ff00ff;
+            font-weight: 900;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+        }
+        
+        /* Floating Neon Hearts */
+        .heart {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #ff00ff;
+            box-shadow: 0 0 8px #ff00ff, 0 0 15px #ff00ff;
+            transform: rotate(-45deg);
+            animation: float-heart 10s infinite ease-in;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .heart:before, .heart:after {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #ff00ff;
+            border-radius: 50%;
+        }
+        .heart:before { top: -12.5px; }
+        .heart:after { left: 12.5px; }
+
+        @keyframes float-heart {
+            0% { transform: translateY(0vh) translateX(0) rotate(-45deg); opacity: 0.8; }
+            100% { transform: translateY(-100vh) translateX(50px) rotate(-45deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section" id="intro">
+        <div class="parallax-bg"></div>
+        <div class="content-box">
+            <h1>OUR INCREDIBLE 1ST YEAR</h1>
+            <p style="font-size: 1.7em; color: #ff00ff;">
+                Happy 1st Anniversary, ALIZA! This journey is just the beginning.
+            </p>
+        </div>
+    </div>
+
+    <div class="section" id="memories">
+        <div class="parallax-bg"></div>
+        <div class="content-box">
+            <h2>THE DAY WE MET ❤️</h2>
+            <p>
+                Mujhe aaj bhi yaad hai jab hum pehli baar mile the. Woh din ek aam din tha, lekin tumhare aane se meri zindagi ka sabse khaas din ban gaya.
+            </p>
+        </div>
+    </div>
+    
+    <div class="section" id="funny-corner">
+        <div class="content-box" style="background-color: rgba(255, 0, 255, 0.1); border: 2px solid #ff00ff;">
+            <h2 style="color: #00ffff;">😂 THE FUNNY CORNER: FOR US!</h2>
+            <p style="color: #ccc;">(Our inside jokes, our secret language!)</p>
+            
+            <p style="margin-top: 20px; border-left: 5px solid #ff00ff; padding-left: 15px;">
+                **Latecomer Queen:** Tum hamesha kehti ho 'Sirf 5 minute', aur woh 5 minute 50 minute ban jaate hain! Par chalo, tumhari har der ka intezaar manzoor hai!
+            </p>
+        </div>
+    </div>
+
+    <div class="section" id="journey">
+        <div class="content-box">
+            <h2>ADVENTURES AND GROWTH 🚀</h2>
+            <p>
+                Har date, har chhoti si ladaai, har lambi baat — sab kuch hamari kahani ka hissa hai. Humne saath mein kitni cheezein seekhi aur ek doosre ko samjha.
+            </p>
+        </div>
+    </div>
+
+    <div class="section" id="finale">
+        <div class="parallax-bg"></div>
+        <div class="content-box">
+            <h1>A PROMISE TO MY QUEEN</h1>
+            <p style="font-size: 2.5em; font-weight: bold; color: #00ffff; text-shadow: 0 0 10px #00ffff;">
+                Tum JAN Hoo Mari</p>
+            <p style="margin-top: 20px; color: #ccc;">
+                18th December. Scroll to the last step!
+            </p>
+            
+            <button id="surprise-button">WAIT FOR SURPRISE IN... (10s)</button>
+            <div id="countdown-timer" style="display: none;">10</div>
+            
+        </div>
+    </div>
+    
+    <script>
+        // Floating Hearts Effect
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw'; 
+            heart.style.animationDuration = Math.random() * 5 + 5 + 's'; 
+            heart.style.bottom = '-50px'; 
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 10000); 
+        }
+        setInterval(createHeart, 200);
+
+        // Scroll Animation Logic
+        const contentBoxes = document.querySelectorAll('.content-box');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Stop observing once visible to prevent re-triggering
+                    // observer.unobserve(entry.target); 
+                }
+            });
+        }, { threshold: 0.3 }); // Trigger when 30% of element is visible
+        contentBoxes.forEach(box => { observer.observe(box); });
+
+        // Countdown Logic (10 seconds)
+        const surpriseButton = document.getElementById('surprise-button');
+        const countdownTimerDisplay = document.getElementById('countdown-timer');
+        let timeLeft = 10; 
+
+        surpriseButton.addEventListener('click', function() {
+            if (this.disabled) return;
+            this.disabled = true;
+            this.textContent = 'INITIATING SURPRISE PROTOCOL...';
+            countdownTimerDisplay.style.display = 'block';
+            
+            const countdownInterval = setInterval(() => {
+                timeLeft--;
+                countdownTimerDisplay.textContent = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = 'proposal.html'; 
+                }
+            }, 1000); 
+        });
+    </script>
+
+</body>
+</html>
