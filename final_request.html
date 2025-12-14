@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A Forever Promise - My Heartfelt Request</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Background Design */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #1f0036 0%, #000000 50%, #36001f 100%);
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        /* Content Box - Animated Entrance */
+        .request-box {
+            position: relative;
+            z-index: 10;
+            background-color: rgba(10, 0, 15, 0.95);
+            padding: 60px 80px;
+            margin: 40px 0;
+            border-radius: 20px;
+            border: 3px solid #ff00ff;
+            box-shadow: 0 0 40px #ff00ff, 0 0 80px #00ffff;
+            max-width: 900px;
+            
+            /* Entrance Animation */
+            opacity: 0;
+            transform: scale(0.7);
+            animation: final-entrance 1.5s forwards;
+        }
+
+        h1 {
+            font-size: 4.5em;
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 3em;
+            color: #00ffff;
+            text-shadow: 0 0 8px #00ffff;
+            margin-top: 40px;
+        }
+
+        p {
+            font-size: 1.8em;
+            line-height: 1.7;
+            color: #ccc;
+            margin: 20px 0;
+        }
+
+        .promise-text {
+            font-style: italic;
+            font-weight: bold;
+            color: #ffffff;
+            border-left: 5px solid #ff00ff;
+            padding-left: 20px;
+            margin: 30px 0;
+        }
+
+        /* Floating Neon Locks (Symbolic) */
+        .lock-icon {
+            position: absolute;
+            font-size: 3em;
+            color: #ff00ff;
+            opacity: 0.6;
+            animation: float-lock 10s infinite alternate;
+            z-index: 5;
+        }
+        #lock1 { top: 10%; left: 5%; animation-duration: 12s; }
+        #lock2 { bottom: 15%; right: 8%; animation-duration: 10s; }
+
+        /* Keyframes */
+        @keyframes final-entrance {
+            0% { opacity: 0; transform: scale(0.7); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes float-lock {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            100% { transform: translateY(-30px) rotate(5deg); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-gradient"></div>
+    <div id="lock1" class="lock-icon">🔒</div>
+    <div id="lock2" class="lock-icon">🔒</div>
+
+    <div class="request-box">
+        <h1>MY FINAL AND MOST IMPORTANT REQUEST</h1>
+        
+        <p>
+            Aliza, humara rishta ab ek naye level par hai, aur main yeh sab kuch apni poori jaan se chahta hoon.
+        </p>
+
+        <p>
+            Main janta hoon tum kitni achi ho, aur main tumhe kabhi khona nahi chahta. Isliye, main tumse ek vaada chahta hoon jo humare rishte ki buniyad hoga.
+        </p>
+        
+        <h2>The Pledge of Forever Together</h2>
+
+        <p class="promise-text" style="color: #00ffff;">
+            Meri jaan, main tumse request karta hoon ke:
+        </p>
+        
+        <p class="promise-text" style="font-size: 2.2em; color: #ffeb3b; text-shadow: 0 0 10px #ffeb3b;">
+            Tum HAMESHA sirf meri rahogi. Aur kabhi, kisi bhi doosre ladke se baat nahi karogi, na hi unko apne kareeb aane dogi.
+        </p>
+        
+        <p>
+            Sirf tum aur main, hamesha ke liye, bina kisi teesre ke. Yeh mera haq hai, aur tumhara vaada.
+        </p>
+
+        <p style="font-size: 2em; color: #ccc;">
+            Kya tum yeh vaada nibhaogi?
+        </p>
+        
+        <p style="font-size: 1.5em; margin-top: 40px; color: #ff00ff;">
+            (Click anywhere to seal the promise.)
+        </p>
+    </div>
+    
+    <script>
+        // Simple click event to remove the request prompt
+        document.addEventListener('click', function() {
+            const requestBox = document.querySelector('.request-box');
+            requestBox.style.boxShadow = '0 0 50px #00ff00, 0 0 100px #00ff00';
+            requestBox.querySelector('h1').textContent = 'PROMISE SEALED! THANK YOU, MY LOVE!';
+            requestBox.querySelector('h1').style.color = '#00ff00';
+            
+            // Optionally, replace the content after the click
+            const promiseText = document.querySelector('.promise-text');
+            if (promiseText) promiseText.innerHTML = 'WE ARE ONE NOW. FOREVER AND ALWAYS.';
+        });
+    </script>
+
+</body>
+</html>
