@@ -14,15 +14,16 @@
             overflow-x: hidden;
         }
 
-        /* Full Page Sections */
+        /* Full Page Sections - FIXED FOR SCROLL */
         .section {
-            height: 100vh;
+            min-height: 100vh; /* Changed from height: 100vh */
+            padding-top: 50px; /* Added padding to ensure content is visible */
+            padding-bottom: 50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
             box-sizing: border-box;
             position: relative;
             overflow: hidden;
@@ -30,7 +31,7 @@
             z-index: 1;
         }
         
-        /* Parallax Background Container */
+        /* Parallax Background Container - ANIMATED */
         .parallax-bg {
             position: absolute;
             top: 0;
@@ -39,8 +40,9 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Key for Parallax */
-            transition: opacity 1s;
+            background-attachment: fixed; 
+            transition: transform 0.5s ease-out;
+            animation: bg-pulse 30s infinite alternate; /* Slow pulse effect */
         }
 
         /* Specific Backgrounds */
@@ -56,17 +58,17 @@
             filter: brightness(0.7);
         }
 
-        /* Content Box - Advanced Neon Glow */
+        /* Content Box - Advanced Neon Glow & Fade/Slide Animation */
         .content-box {
             background-color: rgba(0, 0, 0, 0.85);
             padding: 40px 60px;
             border-radius: 10px;
             border: 2px solid rgba(255, 0, 255, 0.5);
-            box-shadow: 0 0 15px #ff00ff, 0 0 30px #00ffff; /* Dual Neon Glow */
+            box-shadow: 0 0 15px #ff00ff, 0 0 30px #00ffff; 
             max-width: 800px;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
+            transform: translateY(50px); /* Starts 50px below */
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* Smooth transition */
             z-index: 2;
         }
         .content-box.visible { opacity: 1; transform: translateY(0); }
@@ -76,14 +78,14 @@
         h2 { font-size: 3.2em; color: #00ffff; text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff; letter-spacing: 3px; }
         p { font-size: 1.4em; line-height: 1.7; color: #ccc; }
 
-        /* Countdown Button Styling */
+        /* Countdown Button Styling (unchanged) */
         #surprise-button {
             padding: 18px 40px;
             font-size: 1.6em;
             margin-top: 40px;
             cursor: pointer;
             border: 3px solid #00ffff;
-            border-radius: 50px; /* Pill Shape */
+            border-radius: 50px; 
             background-color: transparent;
             color: #00ffff;
             box-shadow: 0 0 15px #00ffff;
@@ -104,7 +106,7 @@
             text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
         }
         
-        /* Floating Neon Hearts */
+        /* Floating Neon Hearts (unchanged) */
         .heart {
             position: absolute;
             width: 25px;
@@ -127,9 +129,14 @@
         .heart:before { top: -12.5px; }
         .heart:after { left: 12.5px; }
 
+        /* Keyframes */
         @keyframes float-heart {
             0% { transform: translateY(0vh) translateX(0) rotate(-45deg); opacity: 0.8; }
             100% { transform: translateY(-100vh) translateX(50px) rotate(-45deg); opacity: 0; }
+        }
+        @keyframes bg-pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
         }
     </style>
 </head>
@@ -210,8 +217,6 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Stop observing once visible to prevent re-triggering
-                    // observer.unobserve(entry.target); 
                 }
             });
         }, { threshold: 0.3 }); // Trigger when 30% of element is visible
